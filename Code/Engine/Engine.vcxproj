@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6bed93fc-ad9b-4006-a04c-8fd918014878}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.3.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Temporary\$(ProjectName)_$(PlatformShortName)_$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)../Engine/Code/ThirdParty/imgui/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/;$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/fbxsdk;;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cudart_static.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CudaLink>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)../Engine/Code/ThirdParty/imgui/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/;$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/fbxsdk;;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cudart_static.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CudaCompile>
+      <Include>
+      </Include>
+    </CudaCompile>
+    <CudaLink>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)../Engine/Code/ThirdParty/imgui/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/;$(SolutionDir)../Engine/Code/ThirdParty;$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/fbxsdk;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cudart_static.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CudaLink>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;FBXSDK_SHARED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)../Engine/Code/ThirdParty/imgui/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/;$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/fbxsdk;$(SolutionDir)../Engine/Code/ThirdParty/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Code/;$(SolutionDir)../Engine/Code/;$(SolutionDir)../Engine/Code/ThirdParty/CUDA/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>cudart_static.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Lib>
+    <CudaCompile>
+      <Include>
+      </Include>
+    </CudaCompile>
+    <CudaLink>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </CudaLink>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ThirdParty\imguizmo\ImGuizmo.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\ThirdParty\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\ThirdParty\Squirrel\RawNoise.cpp" />
+    <ClCompile Include="..\ThirdParty\Squirrel\SmoothNoise.cpp" />
+    <ClCompile Include="..\ThirdParty\TinyXML2\tinyxml2.cpp" />
+    <ClCompile Include="Audio\AudioSystem.cpp" />
+    <ClCompile Include="Core\BufferUtilities.cpp" />
+    <ClCompile Include="Core\Clock.cpp" />
+    <ClCompile Include="Core\DevConsole.cpp" />
+    <ClCompile Include="Core\EngineCommon.cpp" />
+    <ClCompile Include="Core\ErrorWarningAssert.cpp" />
+    <ClCompile Include="Core\EventSystem.cpp" />
+    <ClCompile Include="Core\FileUtils.cpp" />
+    <ClCompile Include="Core\HashedCaseInsensitiveString.cpp" />
+    <ClCompile Include="Core\HeatMap.cpp" />
+    <ClCompile Include="Core\Image.cpp" />
+    <ClCompile Include="Core\Model.cpp" />
+    <ClCompile Include="Core\NamedStrings.cpp" />
+    <ClCompile Include="Core\OBJLoader.cpp" />
+    <ClCompile Include="Core\Rgba8.cpp" />
+    <ClCompile Include="Core\STLUtils.cpp" />
+    <ClCompile Include="Core\StopWatch.cpp" />
+    <ClCompile Include="Core\StringUtils.cpp" />
+    <ClCompile Include="Core\Time.cpp" />
+    <ClCompile Include="Core\VertexUtils.cpp" />
+    <ClCompile Include="Core\Vertex_PCU.cpp" />
+    <ClCompile Include="Core\Vertex_PCUTBN.cpp" />
+    <ClCompile Include="Core\XmlUtils.cpp" />
+    <ClCompile Include="FBX\FBXAnimManager.cpp" />
+    <ClCompile Include="FBX\FBXDDMBakingJob.cpp" />
+    <ClCompile Include="Fbx\FBXDDMModifier.cpp" />
+    <ClCompile Include="Fbx\FBXDDMModifierGPU.cpp" />
+    <ClCompile Include="FBX\FBXDDMOmegaPrecomputeJob.cpp" />
+    <ClCompile Include="Fbx\FBXDDMV0CPUJob.cpp" />
+    <ClCompile Include="FBX\FBXDDMModifierCPU.cpp" />
+    <ClCompile Include="FBX\FBXDDMV1CPUJob.cpp" />
+    <ClCompile Include="FBX\FBXJoint.cpp" />
+    <ClCompile Include="FBX\FBXJointGizmosManager.cpp" />
+    <ClCompile Include="Fbx\FBXJointRotatorGizmo.cpp" />
+    <ClCompile Include="FBX\FBXJointTranslatorGizmo.cpp" />
+    <ClCompile Include="FBX\FBXMesh.cpp" />
+    <ClCompile Include="FBX\FBXParser.cpp" />
+    <ClCompile Include="FBX\FBXModel.cpp" />
+    <ClCompile Include="FBX\FBXPose.cpp" />
+    <ClCompile Include="FBX\FBXUtils.cpp" />
+    <ClCompile Include="FBX\Vertex_FBX.cpp" />
+    <ClCompile Include="IKSolver\IKSocket.cpp" />
+    <ClCompile Include="IKSolver\JacobianIKSolver.cpp" />
+    <ClCompile Include="Input\AnalogJoystick.cpp" />
+    <ClCompile Include="Input\InputSystem.cpp" />
+    <ClCompile Include="Input\KeyButtonState.cpp" />
+    <ClCompile Include="Input\XboxController.cpp" />
+    <ClCompile Include="Math\AABB2.cpp" />
+    <ClCompile Include="Math\AABB3.cpp" />
+    <ClCompile Include="Math\Capsule3.cpp" />
+    <ClCompile Include="Math\Capsule2.cpp" />
+    <ClCompile Include="Math\CatmullRomSpline2.cpp" />
+    <ClCompile Include="Math\ConvexHull2D.cpp" />
+    <ClCompile Include="Math\ConvexPoly2D.cpp" />
+    <ClCompile Include="Math\CubicBezierCurve2.cpp" />
+    <ClCompile Include="Math\CubicHermiteCurve2.cpp" />
+    <ClCompile Include="Math\EulerAngles.cpp" />
+    <ClCompile Include="Math\FloatRange.cpp" />
+    <ClCompile Include="Math\IntRange.cpp" />
+    <ClCompile Include="Math\IntVec2.cpp" />
+    <ClCompile Include="Math\IntVec3.cpp" />
+    <ClCompile Include="Math\IntVec4.cpp" />
+    <ClCompile Include="Math\LineSegment2.cpp" />
+    <ClCompile Include="Math\LineSegment3.cpp" />
+    <ClCompile Include="Math\Mat44.cpp" />
+    <ClCompile Include="Math\MathUtils.cpp" />
+    <ClCompile Include="Math\OBB2.cpp" />
+    <ClCompile Include="Math\Plane2D.cpp" />
+    <ClCompile Include="Math\Plane3D.cpp" />
+    <ClCompile Include="Math\Quaternion.cpp" />
+    <ClCompile Include="Math\RandomNumberGenerator.cpp" />
+    <ClCompile Include="Math\RaycastUtils.cpp" />
+    <ClCompile Include="Math\Vec2.cpp" />
+    <ClCompile Include="Math\Vec3.cpp" />
+    <ClCompile Include="Math\Vec4.cpp" />
+    <ClCompile Include="Mesh\MeshOperationUtils.cpp" />
+    <ClCompile Include="Multithread\JobSystem.cpp" />
+    <ClCompile Include="Multithread\JobWorkerThread.cpp" />
+    <ClCompile Include="Net\NetSystem.cpp" />
+    <ClCompile Include="Renderer\BitmapFont.cpp" />
+    <ClCompile Include="Renderer\Camera.cpp" />
+    <ClCompile Include="Renderer\ComputeOutputBuffer.cpp" />
+    <ClCompile Include="Renderer\ComputeShader.cpp" />
+    <ClCompile Include="Renderer\ConstantBuffer.cpp" />
+    <ClCompile Include="Renderer\DebugRender.cpp" />
+    <ClCompile Include="Renderer\FrameBuffer.cpp" />
+    <ClCompile Include="Renderer\IndexBuffer.cpp" />
+    <ClCompile Include="Renderer\Material.cpp" />
+    <ClCompile Include="Renderer\Renderer.cpp" />
+    <ClCompile Include="Renderer\Shader.cpp" />
+    <ClCompile Include="Renderer\ShadowMap.cpp" />
+    <ClCompile Include="Renderer\SimpleTriangleFont.cpp" />
+    <ClCompile Include="Renderer\SpriteAnimDefinition.cpp" />
+    <ClCompile Include="Renderer\SpriteDefinition.cpp" />
+    <ClCompile Include="Renderer\SpriteSheet.cpp" />
+    <ClCompile Include="Renderer\StructuredBuffer.cpp" />
+    <ClCompile Include="Renderer\Texture.cpp" />
+    <ClCompile Include="Renderer\VertexBuffer.cpp" />
+    <ClCompile Include="SkeletalAnimation\Feature.cpp" />
+    <ClCompile Include="SkeletalAnimation\FeatureMatrix.cpp" />
+    <ClCompile Include="SkeletalAnimation\MotionMatchingAnimManager.cpp" />
+    <ClCompile Include="SkeletalAnimation\StateMachineAnimManager.cpp" />
+    <ClCompile Include="SkeletalAnimation\AnimState.cpp" />
+    <ClCompile Include="SkeletalAnimation\SkeletalAnimPlayer.cpp" />
+    <ClCompile Include="SkeletalAnimation\BVHJoint.cpp" />
+    <ClCompile Include="SkeletalAnimation\BVHParser.cpp" />
+    <ClCompile Include="SkeletalAnimation\BVHPose.cpp" />
+    <ClCompile Include="SkeletalAnimation\SkeletalCharacter.cpp" />
+    <ClCompile Include="UI\Button.cpp" />
+    <ClCompile Include="UI\DropDownComponent.cpp" />
+    <ClCompile Include="UI\ImageWidget.cpp" />
+    <ClCompile Include="UI\ImGuiLayer.cpp" />
+    <ClCompile Include="UI\Overlay.cpp" />
+    <ClCompile Include="UI\PopupPlayer.cpp" />
+    <ClCompile Include="UI\TextBox.cpp" />
+    <ClCompile Include="UI\TextTypeComponent.cpp" />
+    <ClCompile Include="UI\Timeline.cpp" />
+    <ClCompile Include="UI\VariablesBox.cpp" />
+    <ClCompile Include="UI\Widget.cpp" />
+    <ClCompile Include="VisualNovel\VisualNovelManager.cpp" />
+    <ClCompile Include="VisualScripting\ActionNode.cpp" />
+    <ClCompile Include="VisualScripting\AddConnectionCommand.cpp" />
+    <ClCompile Include="VisualScripting\AvailableNodeOptionsHelper.cpp" />
+    <ClCompile Include="VisualScripting\BehaviorTreeRootNode.cpp" />
+    <ClCompile Include="VisualScripting\CompositeCommand.cpp" />
+    <ClCompile Include="VisualScripting\ConditionNode.cpp" />
+    <ClCompile Include="VisualScripting\CopyNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\DeleteNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\DropVariableToConditionNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\FallbackNode.cpp" />
+    <ClCompile Include="VisualScripting\MoveNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\BehaviorTreeEditor.cpp" />
+    <ClCompile Include="VisualScripting\BehaviorTreeNode.cpp" />
+    <ClCompile Include="VisualScripting\NodeHelperComponent.cpp" />
+    <ClCompile Include="VisualScripting\NodePNGPathOpenComponent.cpp" />
+    <ClCompile Include="VisualScripting\NodeDropDownComponent.cpp" />
+    <ClCompile Include="VisualScripting\NodeTextTypeBarComponent.cpp" />
+    <ClCompile Include="VisualScripting\PlaceAndConnectNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\PlaceNodeCommand.cpp" />
+    <ClCompile Include="VisualScripting\PlaySpriteAndDialogueNode.cpp" />
+    <ClCompile Include="VisualScripting\RemoveConnectionCommand.cpp" />
+    <ClCompile Include="VisualScripting\SequenceNode.cpp" />
+    <ClCompile Include="VisualScripting\SetBackgroundNode.cpp" />
+    <ClCompile Include="VisualScripting\SetForegroundNode.cpp" />
+    <ClCompile Include="Window\Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ThirdParty\fmod\fmod.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod.hpp" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_codec.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_common.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_dsp.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_dsp_effects.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_errors.h" />
+    <ClInclude Include="..\ThirdParty\fmod\fmod_output.h" />
+    <ClInclude Include="..\ThirdParty\imguizmo\ImGuizmo.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imconfig.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imgui.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imgui_internal.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\ThirdParty\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\ThirdParty\Squirrel\RawNoise.hpp" />
+    <ClInclude Include="..\ThirdParty\Squirrel\SmoothNoise.hpp" />
+    <ClInclude Include="..\ThirdParty\stb\stb_image.h" />
+    <ClInclude Include="..\ThirdParty\svd3.h" />
+    <ClInclude Include="..\ThirdParty\TinyXML2\tinyxml2.h" />
+    <ClInclude Include="Audio\AudioSystem.hpp" />
+    <ClInclude Include="BVH\AABB2TreeNode.hpp" />
+    <ClInclude Include="Core\BufferUtilities.hpp" />
+    <ClInclude Include="Core\Clock.hpp" />
+    <ClInclude Include="Core\CPUMesh.hpp" />
+    <ClInclude Include="Core\DevConsole.hpp" />
+    <ClInclude Include="Core\EngineCommon.hpp" />
+    <ClInclude Include="Core\ErrorWarningAssert.hpp" />
+    <ClInclude Include="Core\EventSystem.hpp" />
+    <ClInclude Include="Core\FileUtils.hpp" />
+    <ClInclude Include="Core\GPUMesh.hpp" />
+    <ClInclude Include="Core\HashedCaseInsensitiveString.hpp" />
+    <ClInclude Include="Core\HeatMap.hpp" />
+    <ClInclude Include="Core\Image.hpp" />
+    <ClInclude Include="Core\Model.hpp" />
+    <ClInclude Include="Core\NamedProperties.hpp" />
+    <ClInclude Include="Core\NamedStrings.hpp" />
+    <ClInclude Include="Core\OBJLoader.hpp" />
+    <ClInclude Include="Core\Rgba8.hpp" />
+    <ClInclude Include="Core\STLUtils.hpp" />
+    <ClInclude Include="Core\StopWatch.hpp" />
+    <ClInclude Include="Core\StringUtils.hpp" />
+    <ClInclude Include="Core\Time.hpp" />
+    <ClInclude Include="Core\VertexUtils.hpp" />
+    <ClInclude Include="Core\Vertex_PCU.hpp" />
+    <ClInclude Include="Core\Vertex_PCUTBN.hpp" />
+    <ClInclude Include="Core\XmlUtils.hpp" />
+    <CudaCompile Include="FBX\CudaFiles\DDMV0.cuh">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CudaCompile>
+    <CudaCompile Include="FBX\CudaFiles\DDMV1.cu" />
+    <CudaCompile Include="FBX\CudaFiles\FastSVD3.cuh">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CudaCompile>
+    <ClInclude Include="FBX\CudaFiles\CudaMatrixMathFunctions.cuh" />
+    <ClInclude Include="FBX\CudaFiles\DDMV1.cuh" />
+    <ClInclude Include="FBX\FBXAnimManager.hpp" />
+    <ClInclude Include="FBX\FBXControlPoint.hpp" />
+    <ClInclude Include="FBX\FBXDDMBakingJob.hpp" />
+    <ClInclude Include="Fbx\FBXDDMModifier.hpp" />
+    <ClInclude Include="Fbx\FBXDDMModifierGPU.hpp" />
+    <ClInclude Include="FBX\FBXDDMOmegaPrecomputeJob.hpp" />
+    <ClInclude Include="Fbx\FBXDDMV0CPUJob.hpp" />
+    <ClInclude Include="FBX\FBXDDMModifierCPU.hpp" />
+    <ClInclude Include="FBX\FBXDDMV1CPUJob.hpp" />
+    <ClInclude Include="FBX\FBXJoint.hpp" />
+    <ClInclude Include="FBX\FBXJointGizmosManager.hpp" />
+    <ClInclude Include="Fbx\FBXJointRotatorGizmo.hpp" />
+    <ClInclude Include="FBX\FBXJointTranslatorGizmo.hpp" />
+    <ClInclude Include="FBX\FBXMesh.hpp" />
+    <ClInclude Include="FBX\FBXParser.hpp" />
+    <ClInclude Include="FBX\FBXModel.hpp" />
+    <ClInclude Include="FBX\FBXPose.hpp" />
+    <ClInclude Include="FBX\FBXUtils.hpp" />
+    <ClInclude Include="FBX\Vertex_FBX.hpp" />
+    <ClInclude Include="IKSolver\IKSocket.hpp" />
+    <ClInclude Include="IKSolver\JacobianIKSolver.hpp" />
+    <ClInclude Include="Input\AnalogJoystick.hpp" />
+    <ClInclude Include="Input\InputSystem.hpp" />
+    <ClInclude Include="Input\KeyButtonState.hpp" />
+    <ClInclude Include="Input\XboxController.hpp" />
+    <ClInclude Include="Math\AABB2.hpp" />
+    <ClInclude Include="Math\AABB3.hpp" />
+    <ClInclude Include="Math\Capsule2.hpp" />
+    <ClInclude Include="Math\Capsule3.hpp" />
+    <ClInclude Include="Math\CatmullRomSpline2.hpp" />
+    <ClInclude Include="Math\ConvexHull2D.hpp" />
+    <ClInclude Include="Math\ConvexPoly2D.hpp" />
+    <ClInclude Include="Math\CubicBezierCurve2.hpp" />
+    <ClInclude Include="Math\CubicHermiteCurve2.hpp" />
+    <ClInclude Include="Math\EulerAngles.hpp" />
+    <ClInclude Include="Math\FloatRange.hpp" />
+    <ClInclude Include="Math\InfiniteLine3.hpp" />
+    <ClInclude Include="Math\IntRange.hpp" />
+    <ClInclude Include="Math\IntVec2.hpp" />
+    <ClInclude Include="Math\IntVec3.hpp" />
+    <ClInclude Include="Math\IntVec4.hpp" />
+    <ClInclude Include="Math\LineSegment2.hpp" />
+    <ClInclude Include="Math\LineSegment3.hpp" />
+    <ClInclude Include="Math\Mat44.hpp" />
+    <ClInclude Include="Math\MathUtils.hpp" />
+    <ClInclude Include="Math\OBB2.hpp" />
+    <ClInclude Include="Math\Plane2D.hpp" />
+    <ClInclude Include="Math\Plane3D.hpp" />
+    <ClInclude Include="Math\Quaternion.hpp" />
+    <ClInclude Include="Math\RandomNumberGenerator.hpp" />
+    <ClInclude Include="Math\RaycastUtils.hpp" />
+    <ClInclude Include="Math\Vec2.hpp" />
+    <ClInclude Include="Math\Vec3.hpp" />
+    <ClInclude Include="Math\Vec4.hpp" />
+    <ClInclude Include="Mesh\ControlPoint.hpp" />
+    <ClInclude Include="Mesh\Edge.hpp" />
+    <ClInclude Include="Mesh\Face.hpp" />
+    <ClInclude Include="Mesh\HalfEdge.hpp" />
+    <ClInclude Include="Mesh\MeshOperationUtils.hpp" />
+    <ClInclude Include="Multithread\Job.hpp" />
+    <ClInclude Include="Multithread\JobSystem.hpp" />
+    <ClInclude Include="Multithread\JobWorkerThread.hpp" />
+    <ClInclude Include="Net\NetSystem.hpp" />
+    <ClInclude Include="Renderer\BitmapFont.hpp" />
+    <ClInclude Include="Renderer\Camera.hpp" />
+    <ClInclude Include="Renderer\ComputeOutputBuffer.hpp" />
+    <ClInclude Include="Renderer\ComputeShader.hpp" />
+    <ClInclude Include="Renderer\ConstantBuffer.hpp" />
+    <ClInclude Include="Renderer\DebugRender.hpp" />
+    <ClInclude Include="Renderer\DefaultShader.hpp" />
+    <ClInclude Include="Renderer\FrameBuffer.hpp" />
+    <ClInclude Include="Renderer\IndexBuffer.hpp" />
+    <ClInclude Include="Renderer\Material.hpp" />
+    <ClInclude Include="Renderer\Renderer.hpp" />
+    <ClInclude Include="Renderer\Shader.hpp" />
+    <ClInclude Include="Renderer\ShadowMap.hpp" />
+    <ClInclude Include="Renderer\SimpleTriangleFont.hpp" />
+    <ClInclude Include="Renderer\SpriteAnimDefinition.hpp" />
+    <ClInclude Include="Renderer\SpriteDefinition.hpp" />
+    <ClInclude Include="Renderer\SpriteSheet.hpp" />
+    <ClInclude Include="Renderer\StructuredBuffer.hpp" />
+    <ClInclude Include="Renderer\Texture.hpp" />
+    <ClInclude Include="Renderer\VertexBuffer.hpp" />
+    <ClInclude Include="SkeletalAnimation\Feature.hpp" />
+    <ClInclude Include="SkeletalAnimation\FeatureMatrix.hpp" />
+    <ClInclude Include="SkeletalAnimation\MotionMatchingAnimManager.hpp" />
+    <ClInclude Include="SkeletalAnimation\StateMachineAnimManager.hpp" />
+    <ClInclude Include="SkeletalAnimation\AnimState.hpp" />
+    <ClInclude Include="SkeletalAnimation\SkeletalAnimPlayer.hpp" />
+    <ClInclude Include="SkeletalAnimation\BVHJoint.hpp" />
+    <ClInclude Include="SkeletalAnimation\BVHParser.hpp" />
+    <ClInclude Include="SkeletalAnimation\BVHPose.hpp" />
+    <ClInclude Include="SkeletalAnimation\SkeletalCharacter.hpp" />
+    <ClInclude Include="UI\Button.hpp" />
+    <ClInclude Include="UI\Component.hpp" />
+    <ClInclude Include="UI\DropDownComponent.hpp" />
+    <ClInclude Include="UI\ImageWidget.hpp" />
+    <ClInclude Include="UI\ImGuiLayer.hpp" />
+    <ClInclude Include="UI\Overlay.hpp" />
+    <ClInclude Include="UI\PopupPlayer.hpp" />
+    <ClInclude Include="UI\TextBox.hpp" />
+    <ClInclude Include="UI\TextTypeComponent.hpp" />
+    <ClInclude Include="UI\Timeline.hpp" />
+    <ClInclude Include="UI\VariablesBox.hpp" />
+    <ClInclude Include="UI\Widget.hpp" />
+    <ClInclude Include="VisualNovel\VisualNovelManager.hpp" />
+    <ClInclude Include="VisualScripting\ActionNode.hpp" />
+    <ClInclude Include="VisualScripting\AddConnectionCommand.hpp" />
+    <ClInclude Include="VisualScripting\AvailableNodeOptionsHelper.hpp" />
+    <ClInclude Include="VisualScripting\BehaviorTreeRootNode.hpp" />
+    <ClInclude Include="VisualScripting\Command.hpp" />
+    <ClInclude Include="VisualScripting\CompositeCommand.hpp" />
+    <ClInclude Include="VisualScripting\ConditionNode.hpp" />
+    <ClInclude Include="VisualScripting\DeleteNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\DropVariableToConditionNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\FallbackNode.hpp" />
+    <ClInclude Include="VisualScripting\MoveNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\BehaviorTreeEditor.hpp" />
+    <ClInclude Include="VisualScripting\BehaviorTreeNode.hpp" />
+    <ClInclude Include="VisualScripting\CopyNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\NodeHelperComponent.hpp" />
+    <ClInclude Include="VisualScripting\NodePNGPathOpenComponent.hpp" />
+    <ClInclude Include="VisualScripting\NodeDropDownComponent.hpp" />
+    <ClInclude Include="VisualScripting\NodeTextTypeBarComponent.hpp" />
+    <ClInclude Include="VisualScripting\PlaceAndConnectNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\PlaceNodeCommand.hpp" />
+    <ClInclude Include="VisualScripting\PlaySpriteAndDialogueNode.hpp" />
+    <ClInclude Include="VisualScripting\RemoveConnectionCommand.hpp" />
+    <ClInclude Include="VisualScripting\SequenceNode.hpp" />
+    <ClInclude Include="VisualScripting\SetBackgroundNode.hpp" />
+    <ClInclude Include="VisualScripting\SetForegroundNode.hpp" />
+    <ClInclude Include="Window\Window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="FBX\CudaFiles\DDMV0.cu">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CudaCompile>
+    <CudaCompile Include="FBX\CudaFiles\Test.cu">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CudaCompile>
+    <CudaCompile Include="FBX\CudaFiles\Test.cuh">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CudaCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.3.targets" />
+  </ImportGroup>
+</Project>
